@@ -1,5 +1,3 @@
-const { ListNode } = require('../extensions/list-node.js');
-
 class Queue {
   constructor() {
     this.head = null;
@@ -11,7 +9,10 @@ class Queue {
   }
 
   enqueue(value) {
-    const newNode = new ListNode(value);
+    const newNode = {
+      value: value,
+      next: null
+    };
 
     if (!this.head) {
       this.head = newNode;
@@ -24,7 +25,7 @@ class Queue {
 
   dequeue() {
     if (!this.head) {
-      return null;
+      return undefined; 
     }
 
     const removedValue = this.head.value;
